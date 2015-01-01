@@ -1,10 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Test</title>
-</head>
-<body>
-	testing 
-</body>
-</html>
+@@include('../head/head.html.tpl')
+@@include('../header/header.html.tpl')
+@@include('../content/featured-article.html.tpl')
+@@include('../content/latest-articles.html.tpl')
+@@include('../footer/footer.html.tpl')
