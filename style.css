@@ -224,6 +224,7 @@ h4.latest a {
 	z-index: 89;
 	background: #2BA664;
 	margin-top:-32px;
+
 	}
 
 	.menu-btn {
@@ -247,8 +248,7 @@ h4.latest a {
 
 	.expand {
 		display: block !important; 
-		-webkit-transition: background-color 2s;
-		transition: background-color 2s;
+
 	}
 
 
@@ -305,6 +305,8 @@ h4.latest a {
 	.articles_row {
 		min-height: 520px;
 	}
+
+	
 	
 }
 
