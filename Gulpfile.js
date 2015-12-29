@@ -26,13 +26,17 @@ gulp.task('build', function(){
 		runBuild();
 	})
 
+
+
 gulp.task('default', function(){
 		runBuild();
 		runWatch();
 	});
 
 gulp.task('deploy', function() {
-  return gulp.src('dist/**/*')
+  return gulp.src('./dist/**/*')
     .pipe(ghPages());
 });
+
+
 
