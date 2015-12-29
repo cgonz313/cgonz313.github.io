@@ -1,4 +1,5 @@
 var gulp = require('gulp');
+var ghPages = require('gulp-gh-pages');
 var fileInclude = require('gulp-file-include');
 var rename = require('gulp-rename');
 
@@ -29,3 +30,9 @@ gulp.task('default', function(){
 		runBuild();
 		runWatch();
 	});
+
+gulp.task('deploy', function() {
+  return gulp.src('dist/**/*')
+    .pipe(ghPages());
+});
+
