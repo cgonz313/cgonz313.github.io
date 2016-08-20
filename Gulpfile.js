@@ -32,7 +32,7 @@ gulp.task('default', function(){
 	});
 
 gulp.task('deploy', function() {
-  return gulp.src('dist/**/*')
-    .pipe(ghPages());
+   return gulp.src("./dist/**/*")
+    .pipe(deploy())
 });
 
