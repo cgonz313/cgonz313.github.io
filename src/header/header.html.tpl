@@ -16,7 +16,7 @@
 				</div>
 				<div class="menu-items">
 					<ul class="menu-justify">
-						<li><a href="index.html" class="home">HOME</a></li>
+						<li><a href="index.html" class="home">HOMEss</a></li>
 						<li><a href="#" class="football">FOOTBALL</a></li>
 						<li><a href="#" class="baseball">BASEBALL</a></li>
 						<li><a href="#" class="basketball">BASKETBALL</a></li>
