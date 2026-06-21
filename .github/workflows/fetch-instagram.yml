@@ -24,9 +24,13 @@ jobs:
         run: pip install instaloader
 
       - name: Fetch last 12 posts
+        env:
+          IG_USERNAME: ${{ secrets.IG_USERNAME }}
+          IG_PASSWORD: ${{ secrets.IG_PASSWORD }}
         run: |
           mkdir -p instagram
-          instaloader --no-videos --no-metadata-json --no-captions \
+          instaloader --login "$IG_USERNAME" --password "$IG_PASSWORD" \
+            --no-videos --no-metadata-json --no-captions \
             --count 12 --dirname-pattern instagram \
             --filename-pattern "{date_utc:%Y%m%d}_{mediaid}" \
             -- cgonz313
