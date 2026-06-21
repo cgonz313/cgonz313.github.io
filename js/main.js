@@ -13,7 +13,7 @@ function applyTheme(theme) {
   }
 }
 
-const savedTheme = localStorage.getItem('cg-theme') || 'newsprint';
+const savedTheme = localStorage.getItem('cg-theme') || 'hardwood';
 applyTheme(savedTheme);
 
 const themeSwitcher = document.getElementById('theme-switcher');
