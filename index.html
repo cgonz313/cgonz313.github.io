@@ -16,7 +16,8 @@
   <a class="nav-logo" href="#hero">Craig Gonzalez</a>
   <ul class="nav-links">
     <li><a href="#events">Events</a></li>
-    <li><a href="#mixes">Mixes</a></li>
+    <li><a href="#soundcloud">SoundCloud</a></li>
+    <li><a href="#youtube">YouTube</a></li>
     <li><a href="#instagram">Instagram</a></li>
   </ul>
 </nav>
@@ -29,7 +30,7 @@
     <h1>Craig<br>Gonzalez</h1>
     <p class="hero-sub">Driving rhythms &amp; deep grooves</p>
     <div class="hero-cta">
-      <a href="#mixes" class="btn btn-primary">Listen</a>
+      <a href="#soundcloud" class="btn btn-primary">Listen</a>
       <a href="#bio" class="btn btn-secondary">About</a>
     </div>
   </div>
@@ -41,63 +42,55 @@
 <section id="events">
   <div class="section-wrap">
     <p class="section-label">★ Live ★</p>
-    <h2>Upcoming Events</h2>
-    <iframe
-      src="https://ra.co/pro/user-dj-api.aspx?id=12723"
-      width="100%"
-      height="500"
-      frameborder="0"
-      scrolling="no"
-      style="display:block;">
-    </iframe>
+    <div class="events-layout">
+      <div class="events-widget">
+        <h2>Upcoming Events</h2>
+        <iframe
+          src="https://ra.co/widget/eventlisting?dj=craiggonzalez&bgcolor=F0E2B0&linkcolor=C01810&textcolor=1A0C04&darkbuttons=true"
+          width="100%"
+          height="640"
+          frameborder="0"
+          style="display:block;">
+        </iframe>
+      </div>
+      <div class="events-bio">
+        <div class="bio-text">
+          <p>Craig Gonzalez crafts immersive sets rooted in cohesion and steady forward movement. Drawing from a deep catalog, he focuses on the evolving arc of the night to shape the energy of the room with absolute clarity and purpose.</p>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
 <div class="divider"></div>
 
-<!-- MIXES -->
-<section id="mixes">
+<!-- SOUNDCLOUD -->
+<section id="soundcloud">
   <div class="section-wrap">
     <p class="section-label">★ Listen ★</p>
-    <h2>Mixes</h2>
-    <div class="mixes-grid">
+    <h2>SoundCloud</h2>
+    <iframe width="100%" height="450" scrolling="no" frameborder="no" allow="autoplay; encrypted-media" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/soundcloud%253Aplaylists%253A3937&color=%23110c0a&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+  </div>
+</section>
 
-      <!--
-        SOUNDCLOUD EMBED
-        1. Open your SoundCloud track
-        2. Click Share → Embed
-        3. Copy the iframe `src` URL and paste it below
-        4. Update the h3 text
-      -->
-      <div class="mix-block">
-        <h3>Your Mix Title Here</h3>
-        <iframe width="100%" height="450" scrolling="no" frameborder="no" allow="autoplay; encrypted-media" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/soundcloud%253Aplaylists%253A3937&color=%23110c0a&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
-      </div>
+<div class="divider"></div>
 
-      <!--
-        YOUTUBE EMBED
-        1. Open your YouTube video
-        2. Click Share → Embed
-        3. Grab the video ID from the src (after /embed/)
-        4. Replace YOUR_VIDEO_ID below
-        5. Update the h3 text
-      -->
-      <div class="mix-block">
-        <h3>Your Playlist</h3>
-        <div class="mix-video-wrap">
-          <iframe
-            width="560"
-            height="315"
-            src="https://www.youtube.com/embed/fiFN-X80h24?si=GMbnNWqZfPgPypLx"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen>
-          </iframe>
-        </div>
-      </div>
-
+<!-- YOUTUBE -->
+<section id="youtube">
+  <div class="section-wrap">
+    <p class="section-label">★ Watch ★</p>
+    <h2>YouTube</h2>
+    <div class="mix-video-wrap">
+      <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/fiFN-X80h24?si=GMbnNWqZfPgPypLx"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen>
+      </iframe>
     </div>
   </div>
 </section>
@@ -125,7 +118,8 @@
       Option B — Manual images:
         Replace each ig-cell-placeholder span with an <img> tag inside the .ig-cell links.
     -->
-    <div class="ig-grid">
+    <div class="ig-grid" id="ig-grid">
+      <!-- populated by js/instagram.js -->
       <a class="ig-cell" href="https://instagram.com/cgonz313" target="_blank" rel="noopener">
         <span class="ig-cell-placeholder">◆</span>
       </a>
@@ -150,12 +144,6 @@
       <a class="ig-cell" href="https://instagram.com/cgonz313" target="_blank" rel="noopener">
         <span class="ig-cell-placeholder">◆</span>
       </a>
-    </div>
-
-    <div class="ig-note">
-      <strong>To show your real posts:</strong> sign up free at
-      <a href="https://behold.so" target="_blank" rel="noopener">behold.so</a>,
-      connect <strong>@cgonz313</strong>, and swap the grid above with their embed code.
     </div>
   </div>
 </section>
@@ -173,6 +161,7 @@
 </footer>
 
 <script src="js/main.js"></script>
+<script src="js/instagram.js"></script>
 
 </body>
 </html>
