@@ -1,3 +1,29 @@
+const widgetColors = {
+  newsprint: { bgcolor: 'F0E2B0', textcolor: '1A0C04', linkcolor: 'C01810', darkbuttons: true },
+  hardwood:  { bgcolor: '0D1B2A', textcolor: 'F5E8C4', linkcolor: 'C49410', darkbuttons: false },
+  bourbon:   { bgcolor: '1C0A02', textcolor: 'F2DEB8', linkcolor: 'E8A020', darkbuttons: false },
+};
+
+function applyTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme);
+  const c = widgetColors[theme] || widgetColors.newsprint;
+  const widget = document.getElementById('ra-widget');
+  if (widget) {
+    widget.src = `https://ra.co/widget/eventlisting?dj=craiggonzalez&bgcolor=${c.bgcolor}&textcolor=${c.textcolor}&linkcolor=${c.linkcolor}&darkbuttons=${c.darkbuttons}`;
+  }
+}
+
+const savedTheme = localStorage.getItem('cg-theme') || 'newsprint';
+applyTheme(savedTheme);
+
+const themeSwitcher = document.getElementById('theme-switcher');
+themeSwitcher.value = savedTheme;
+themeSwitcher.addEventListener('change', () => {
+  const theme = themeSwitcher.value;
+  applyTheme(theme);
+  localStorage.setItem('cg-theme', theme);
+});
+
 const nav = document.getElementById('main-nav');
 window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 60);

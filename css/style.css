@@ -1,6 +1,7 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
+:root,
+[data-theme="newsprint"] {
   --bg: #F0E2B0;
   --surface: #E4D498;
   --border: #8C6020;
@@ -8,6 +9,26 @@
   --muted: #6C4018;
   --accent: #C01810;
   --gold: #C48808;
+}
+
+[data-theme="hardwood"] {
+  --bg: #0D1B2A;
+  --surface: #162336;
+  --border: #C49410;
+  --text: #F5E8C4;
+  --muted: #A08840;
+  --accent: #C49410;
+  --gold: #E8C456;
+}
+
+[data-theme="bourbon"] {
+  --bg: #1C0A02;
+  --surface: #2C1206;
+  --border: #7C3C14;
+  --text: #F2DEB8;
+  --muted: #C47840;
+  --accent: #E8A020;
+  --gold: #E8A020;
 }
 
 html { scroll-behavior: smooth; }
@@ -67,34 +88,144 @@ nav.scrolled {
 .nav-links a:hover { color: var(--accent); }
 .nav-links .nav-icon { display: none; }
 
-/* ── HERO ── */
+.theme-switcher {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 600;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  padding: 0.3rem 0.6rem;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.theme-switcher:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ── HERO / CARD ── */
 #hero {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  text-align: left;
-  padding: 8rem 3rem 5rem;
-  position: relative;
-  overflow: hidden;
+  padding: 7rem 3rem 4rem;
   border-bottom: 4px solid var(--border);
 }
 
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse at 50% 50%, rgba(196, 136, 8, 0.08) 0%, transparent 65%);
+.hero-content {
+  max-width: 960px;
+  margin: 0 auto;
 }
 
-.hero-content { position: relative; z-index: 1; width: 100%; }
+/* Trading card */
+.card {
+  border: 4px solid var(--accent);
+  border-radius: 10px;
+  box-shadow: 0 0 0 3px var(--gold), 0 12px 40px rgba(0,0,0,0.18);
+  background: var(--bg);
+  overflow: hidden;
+}
 
-.hero-layout {
+.card-header {
+  background: var(--accent);
+  color: var(--bg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 1.5rem;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+}
+
+.card-body {
   display: grid;
-  grid-template-columns: 1fr 1.4fr;
-  gap: 5rem;
-  align-items: start;
+  grid-template-columns: 1fr 1.3fr;
 }
+
+.card-photo {
+  display: block;
+  overflow: hidden;
+  min-height: 380px;
+}
+
+.card-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.card-photo:hover img { transform: scale(1.04); }
+
+.card-info {
+  padding: 2rem 2rem 1.5rem;
+  border-left: 3px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.card-name {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+  line-height: 0.9;
+  letter-spacing: 0.02em;
+  color: var(--text);
+}
+
+.card-bio {
+  font-size: 0.92rem;
+  line-height: 1.8;
+  color: var(--text);
+  opacity: 0.8;
+}
+
+.card-cta {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: auto;
+}
+
+.card-footer {
+  background: var(--accent);
+  color: var(--bg);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.7rem 1.5rem;
+  font-family: 'Barlow Condensed', sans-serif;
+}
+
+.card-footer-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  opacity: 0.7;
+  white-space: nowrap;
+}
+
+.card-footer .booking-email {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--bg);
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  opacity: 0.9;
+  transition: opacity 0.2s;
+}
+
+.card-footer .booking-email:hover { opacity: 1; }
 
 /* ── PHOTO GRID ── */
 .photo-grid {
@@ -609,9 +740,12 @@ footer {
   .nav-links { gap: 1.5rem; }
   .nav-links .nav-text { display: none; }
   .nav-links .nav-icon { display: inline; font-size: 1.2rem; }
-  #hero { padding: 5rem 1.5rem 3rem; }
+  #hero { padding: 5rem 1rem 2.5rem; }
   .section-wrap { padding: 4rem 1.5rem; }
-  .hero-layout { grid-template-columns: 1fr; gap: 2rem; }
+  .card-body { grid-template-columns: 1fr; }
+  .card-photo { min-height: 260px; }
+  .card-info { border-left: none; border-top: 4px solid var(--accent); }
+  .card-footer { flex-direction: column; gap: 0.25rem; text-align: center; }
   .soundcloud-layout { grid-template-columns: 1fr; gap: 3rem; }
   .about-layout { grid-template-columns: 1fr; gap: 3rem; }
   .bio-layout { grid-template-columns: 1fr; gap: 3rem; }
