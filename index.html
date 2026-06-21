@@ -1,131 +1,611 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<title>Craig Gonzalez</title>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Craig Gonzalez</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #080808;
+      --surface: #111111;
+      --border: #1e1e1e;
+      --text: #f0f0f0;
+      --muted: #777777;
+      --accent: #ff5e00;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      line-height: 1.6;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 3rem;
+      transition: background 0.3s, border-color 0.3s;
+      border-bottom: 1px solid transparent;
+    }
+
+    nav.scrolled {
+      background: rgba(8, 8, 8, 0.9);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom-color: var(--border);
+    }
+
+    .nav-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.3rem;
+      letter-spacing: 0.08em;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 4rem 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 65% 35%, rgba(255, 94, 0, 0.09) 0%, transparent 55%),
+        radial-gradient(ellipse at 15% 85%, rgba(255, 94, 0, 0.05) 0%, transparent 45%);
+    }
+
+    .hero-content { position: relative; z-index: 1; }
+
+    .hero-eyebrow {
+      font-size: 0.72rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(5.5rem, 16vw, 15rem);
+      line-height: 0.88;
+      letter-spacing: -0.01em;
+      color: var(--text);
+    }
+
+    .hero-sub {
+      margin-top: 2rem;
+      color: var(--muted);
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .hero-cta {
+      margin-top: 2.5rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.7rem 1.8rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid;
+      transition: all 0.2s;
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #000;
+    }
+
+    .btn-primary:hover {
+      background: transparent;
+      color: var(--accent);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border-color: var(--border);
+      color: var(--muted);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--muted);
+      color: var(--text);
+    }
+
+    /* ── SHARED ── */
+    .section-wrap {
+      padding: 7rem 3rem;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .divider {
+      width: 100%;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .section-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.25rem;
+    }
+
+    h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3rem, 6vw, 5rem);
+      letter-spacing: 0.02em;
+      line-height: 1;
+      margin-bottom: 3rem;
+    }
+
+    /* ── BIO ── */
+    .bio-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 6rem;
+      align-items: start;
+    }
+
+    .bio-text p {
+      color: var(--muted);
+      margin-bottom: 1.25rem;
+      font-size: 1rem;
+      line-height: 1.85;
+    }
+
+    .bio-text p:first-child {
+      color: var(--text);
+      font-size: 1.1rem;
+    }
+
+    .bio-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.75rem;
+      margin-top: 2.5rem;
+    }
+
+    .stat {
+      border-top: 1px solid var(--border);
+      padding-top: 1rem;
+    }
+
+    .stat-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.6rem;
+      color: var(--accent);
+      line-height: 1;
+    }
+
+    .stat-lbl {
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 0.3rem;
+    }
+
+    /* ── MIXES ── */
+    .mixes-grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .mix-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      overflow: hidden;
+    }
+
+    .mix-header {
+      padding: 1rem 1.4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .mix-platform {
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .mix-title {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .mix-card iframe {
+      display: block;
+      width: 100%;
+      border: 0;
+    }
+
+    .mix-video-wrap {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+    }
+
+    .mix-video-wrap iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* ── INSTAGRAM ── */
+    .ig-top {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 1.5rem;
+    }
+
+    .ig-top h2 { margin-bottom: 0; }
+
+    .ig-handle-link {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      transition: color 0.2s;
+      padding-bottom: 0.15rem;
+    }
+
+    .ig-handle-link:hover { color: var(--text); }
+
+    .ig-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 4px;
+    }
+
+    .ig-cell {
+      aspect-ratio: 1;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+      text-decoration: none;
+      transition: border-color 0.2s;
+    }
+
+    .ig-cell:hover { border-color: var(--muted); }
+
+    .ig-cell img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s;
+    }
+
+    .ig-cell:hover img { transform: scale(1.06); }
+
+    .ig-cell-placeholder {
+      color: var(--border);
+      font-size: 1.25rem;
+      transition: color 0.2s;
+    }
+
+    .ig-cell:hover .ig-cell-placeholder { color: var(--muted); }
+
+    .ig-note {
+      margin-top: 1.25rem;
+      padding: 0.9rem 1.25rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .ig-note a { color: var(--accent); text-decoration: none; }
+    .ig-note a:hover { text-decoration: underline; }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.2rem;
+      letter-spacing: 0.08em;
+      color: var(--text);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .footer-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--text); }
+
+    .footer-copy {
+      font-size: 0.72rem;
+      color: var(--muted);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 1.2rem 1.5rem; }
+      .nav-links { display: none; }
+      #hero { padding: 2rem 1.5rem 3rem; }
+      .section-wrap { padding: 5rem 1.5rem; }
+      .bio-layout { grid-template-columns: 1fr; gap: 3rem; }
+      .ig-grid { grid-template-columns: repeat(2, 1fr); }
+      footer { flex-direction: column; gap: 1.5rem; text-align: center; padding: 2rem 1.5rem; }
+      .footer-links { flex-wrap: wrap; justify-content: center; }
+    }
+  </style>
 </head>
-
 <body>
-	<div class="section group">
-		<div class="col span_4_of_4">
-			<div id="logo" class="logo">
-				<img src="http://www.gonzprojects.com/exercise/images/logo.png" alt="Console Sports">
-			</div>
-		</div>
-	</div>
-	<div class="section group">
-		<div class="col span_4_of_4">
-			<nav class="navigation">
-				<div class="menu-btn" id="menu-btn">
-					<div></div>
-					<span></span>
-					<span></span>
-					<span></span>
-				</div>
-				<div class="menu-items">
-					<ul class="menu-justify">
-						<li><a href="#" class="home">HOME</a></li>
-						<li><a href="#" class="football">FOOTBALL</a></li>
-						<li><a href="#" class="baseball">BASEBALL</a></li>
-						<li><a href="#" class="basketball">BASKETBALL</a></li>
-						<li><a href="#" class="hockey">HOCKEY</a></li>
-						<li><a href="#" class="other">OTHER</a></li>
-					</ul>
-				</div>
-			</nav>
-		</div>
-	</div>
-	<div class="section group">
-		<div class="col span_2_of_3">
-			<div id="featured" class="featured_article">
-				<img src="http://www.gonzprojects.com/exercise/images/featured.jpg" alt="Featured Image">
-				<h2><a href="#">Andrew Luck on ‘Madden NFL 16’ list of Top 5 QBs</a></h2>
-				<p> Way out west there was a fella, fella I want to tell you about, fella by the name of Jeff Lebowski. At least, that was the handle his lovin' parents gave him, but he never had much use for it himself. This Lebowski, he called himself the Dude. Now, Dude, that's a name no one would self-apply where I come from. ... <span class="more"><a href="#">Read More&raquo;</a></span></p>
-			</div>
-		</div>
-		<div class="col span_1_of_3">
-			<div id="recent_nav" class="widget">
-				<h3>Recent Articles</h3>
-				<ul class="article_list">
-					<li><a href="#">Laundry, Dude. The Whites</a></li>
-					<li><a href="#">Another Caucasian, Gary</a></li>
-					<li><a href="#" class="trending"><i class="fa fa-line-chart"></i>Do You Have Any Kalhua?</a></li>
-					<li><a href="#">This is a Private Residence, Man!</a></li>
-					<li><a href="#">The Original Port Huron Statement</a></li>
-					<li><a href="#">It Really Tied the Room Together</a></li>
-				</ul>
-			</div>
-			<div class="featured_vid widget">
-				<h3>Featured Video</h3>
-				<div class="video-container">
-					<iframe width="853" height="480" src="https://www.youtube.com/embed/6EBS5z5c9A4" frameborder="0" allowfullscreen></iframe></div>
-			</div>
-		</div>
-	</div>
-	<div class="section group">
-		<div class="col span_1_of_4">
-			<h3>Football</h3>
-			<div class="latest articles_row">
-				<img src="http://www.gonzprojects.com/exercise/images/football.jpg" alt="Football" />
-				<h4><a href="#"> You Want A Toe?</a></h4>
-				<p>Excuse me! Mark it zero. Next frame. Sure you'll see some tank battles. But fighting in desert is very different from fighting in canopy jungle.</p>
-				<a href="#" class="read_more">READ MORE</a>
-			</div>
-		</div>
-		<div class="col span_1_of_4">
-			<h3>Baseball</h3>
-			<div class="latest articles_row">
-		 		<img src="http://www.gonzprojects.com/exercise/images/baseball.jpg" alt="Baseball" />
-		 		<h4><a href="#">I Can Get You A Toe</a></h4>
-		 		<p>No ma'am, I didn't mean to give the impression that we're police exactly. We're hoping that it will not be necessary to call the police.</p>
-		 		<a href="#" class="read_more">READ MORE</a>
-		 	</div>
-		</div>
-		<div class="col span_1_of_4">
-			<h3>Basketball</h3>
-			<div class="latest articles_row">
-				<img src="http://www.gonzprojects.com/exercise/images/basketball.jpg" alt="Basketball" />
-				<h4><a href="#">There Are Ways, Dude</a></h4>
-				<p>We've got a man down, Dude. Is this your homework, Larry? They won't hurt us, Donny. These men are cowards. Finishing my coffee. These men are nihilists, Donny, nothing to be afraid of.</p>
-				<a href="#" class="read_more">READ MORE</a>
-			</div>
-		</div>
-		<div class="col span_1_of_4">
-		<h3>Hockey</h3>
-			<div class="latest articles_row">
-				<img src="http://www.gonzprojects.com/exercise/images/hockey.jpg" alt="Hockey" />
-				<h4><a href="#">The Dude Abides</a></h4>
-				<p>My point, Dude, is why should we settle for twenty grand when we can keep the entire million. Am I wrong? Goodnight, sweet prince. </p>
-				<a href="#" class="read_more">READ MORE</a>
-			</div>
-		</div>
 
-	</div>
-// <script type="text/javascript">
-//  jQuery(function($){
-//      $( '.menu-btn' ).click(function(){
-//      $('.main_nav').addClass('expand')
-//      $('.menu-btn').addClass('btn-none')
-//      })
-     
-//      $( '.close-btn' ).click(function(){
-//      $('.main_nav').removeClass('expand')
-//      $('.menu-btn').removeClass('btn-none')
-//      })
-//    })
-//  </script>
-<script type="text/javascript">
- jQuery(function($){
-    	     $( '.menu-btn' ).click(function(){
-    	     $('.menu-items').toggleClass('expand')
-    	     })
-        })
+<!-- NAV -->
+<nav id="main-nav">
+  <a class="nav-logo" href="#hero">Craig Gonzalez</a>
+  <ul class="nav-links">
+    <li><a href="#bio">Bio</a></li>
+    <li><a href="#mixes">Mixes</a></li>
+    <li><a href="#instagram">Instagram</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">House &amp; Techno</p>
+    <h1>Craig<br>Gonzalez</h1>
+    <p class="hero-sub">Driving rhythms &amp; deep grooves</p>
+    <div class="hero-cta">
+      <a href="#mixes" class="btn btn-primary">Listen</a>
+      <a href="#bio" class="btn btn-secondary">About</a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- BIO -->
+<section id="bio">
+  <div class="section-wrap">
+    <p class="section-label">About</p>
+    <div class="bio-layout">
+      <div>
+        <h2>The Artist</h2>
+        <div class="bio-stats">
+          <div class="stat">
+            <div class="stat-num">10+</div>
+            <div class="stat-lbl">Years Playing</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">∞</div>
+            <div class="stat-lbl">Vinyl Digs</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">BPM</div>
+            <div class="stat-lbl">130 – 145</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">24/7</div>
+            <div class="stat-lbl">In the Booth</div>
+          </div>
+        </div>
+      </div>
+      <div class="bio-text">
+        <!-- ✏️ Replace with your own bio text -->
+        <p>Craig Gonzalez is a house and techno DJ pushing the boundaries of the dance floor with carefully curated sets built on driving rhythms and deep, hypnotic grooves.</p>
+        <p>With an ear for both classic and cutting-edge sounds, his sets move seamlessly between peak-hour energy and late-night introspection — always keeping the dance floor locked in.</p>
+        <p>Available for bookings, collaborations, and residencies.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- MIXES -->
+<section id="mixes">
+  <div class="section-wrap">
+    <p class="section-label">Listen</p>
+    <h2>Mixes</h2>
+    <div class="mixes-grid">
+
+      <!--
+        SOUNDCLOUD EMBED
+        1. Open your SoundCloud track
+        2. Click Share → Embed
+        3. Copy the iframe `src` URL and paste it below
+        4. Update the mix-title text
+      -->
+      <div class="mix-card">
+        <div class="mix-header">
+          <span class="mix-platform">SoundCloud</span>
+          <span class="mix-title">Your Mix Title Here</span>
+        </div>
+        <iframe width="100%" height="450" scrolling="no" frameborder="no" allow="autoplay; encrypted-media" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/soundcloud%253Aplaylists%253A3937&color=%23110c0a&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/craig-gonzalez" title="Craig Gonzalez" target="_blank" style="color: #cccccc; text-decoration: none;">Craig Gonzalez</a> · <a href="https://soundcloud.com/craig-gonzalez/sets/dj-mixes" title="DJ Mixes" target="_blank" style="color: #cccccc; text-decoration: none;">DJ Mixes</a></div>
+      </div>
+
+      <!--
+        YOUTUBE EMBED
+        1. Open your YouTube video
+        2. Click Share → Embed
+        3. Grab the video ID from the src (after /embed/)
+        4. Replace YOUR_VIDEO_ID below
+        5. Update the mix-title text
+      -->
+      <div class="mix-card">
+        <div class="mix-header">
+          <span class="mix-platform">YouTube</span>
+          <span class="mix-title">Your Playlist</span>
+        </div>
+        <div class="mix-video-wrap">
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/fiFN-X80h24?si=GMbnNWqZfPgPypLx"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- INSTAGRAM -->
+<section id="instagram">
+  <div class="section-wrap">
+    <p class="section-label">Social</p>
+    <div class="ig-top">
+      <h2>Instagram</h2>
+      <a class="ig-handle-link" href="https://instagram.com/cgonz313" target="_blank" rel="noopener">@cgonz313</a>
+    </div>
+
+    <!--
+      LIVE INSTAGRAM FEED
+      Instagram's API no longer allows public embed without an approved app.
+
+      Option A — Behold (free, no code needed):
+        1. Sign up at https://behold.so
+        2. Connect your @cgonz313 account
+        3. Replace the ig-grid div below with the embed <script> they give you
+
+      Option B — Manual images:
+        Replace each ig-cell-placeholder span with an <img> tag inside the .ig-cell links.
+    -->
+    <div class="ig-grid">
+      <a class="ig-cell" href="https://instagram.com/cgonz313" target="_blank" rel="noopener">
+        <span class="ig-cell-placeholder">◆</span>
+      </a>
+      <a class="ig-cell" href="https://instagram.com/cgonz313" target="_blank" rel="noopener">
+        <span class="ig-cell-placeholder">◆</span>
+      </a>
+      <a class="ig-cell" href="https://instagram.com/cgonz313" target="_blank" rel="noopener">
+        <span class="ig-cell-placeholder">◆</span>
+      </a>
+      <a class="ig-cell" href="https://instagram.com/cgonz313" target="_blank" rel="noopener">
+        <span class="ig-cell-placeholder">◆</span>
+      </a>
+      <a class="ig-cell" href="https://instagram.com/cgonz313" target="_blank" rel="noopener">
+        <span class="ig-cell-placeholder">◆</span>
+      </a>
+      <a class="ig-cell" href="https://instagram.com/cgonz313" target="_blank" rel="noopener">
+        <span class="ig-cell-placeholder">◆</span>
+      </a>
+      <a class="ig-cell" href="https://instagram.com/cgonz313" target="_blank" rel="noopener">
+        <span class="ig-cell-placeholder">◆</span>
+      </a>
+      <a class="ig-cell" href="https://instagram.com/cgonz313" target="_blank" rel="noopener">
+        <span class="ig-cell-placeholder">◆</span>
+      </a>
+    </div>
+
+    <div class="ig-note">
+      <strong>To show your real posts:</strong> sign up free at
+      <a href="https://behold.so" target="_blank" rel="noopener">behold.so</a>,
+      connect <strong>@cgonz313</strong>, and swap the grid above with their embed code.
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-logo">Craig Gonzalez</span>
+  <div class="footer-links">
+    <a href="https://instagram.com/cgonz313" target="_blank" rel="noopener">Instagram</a>
+    <!-- Update with your actual SoundCloud and YouTube URLs -->
+    <a href="https://soundcloud.com/YOUR_SOUNDCLOUD" target="_blank" rel="noopener">SoundCloud</a>
+    <a href="https://youtube.com/@YOUR_YOUTUBE" target="_blank" rel="noopener">YouTube</a>
+  </div>
+  <span class="footer-copy">&copy; 2026</span>
+</footer>
+
+<script>
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
 </script>
+
 </body>
 </html>
