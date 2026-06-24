@@ -31,6 +31,272 @@
   --gold: #E8A020;
 }
 
+/* ── ABA TEAM THEMES ── */
+
+/* Anaheim Amigos — Orange + Black */
+[data-theme="amigos"] {
+  --bg: #0E0E0E;
+  --surface: #1C1C1C;
+  --border: #DE7C00;
+  --text: #F5F0E8;
+  --muted: #B07020;
+  --accent: #DE7C00;
+  --gold: #F09830;
+}
+
+/* Carolina Cougars — Carolina Blue + Red */
+[data-theme="cougars"] {
+  --bg: #1C4A82;
+  --surface: #245A9E;
+  --border: #F0C830;
+  --text: #FFFFFF;
+  --muted: #A0C4EE;
+  --accent: #C8102E;
+  --gold: #F0C830;
+}
+
+/* Dallas Chaparrals — Royal Blue + Red */
+[data-theme="chaparrals"] {
+  --bg: #002080;
+  --surface: #002898;
+  --border: #D50032;
+  --text: #F5F0EC;
+  --muted: #8098D0;
+  --accent: #D50032;
+  --gold: #FFC72C;
+}
+
+/* Denver Rockets (purple era) — Purple + Yellow */
+[data-theme="rockets"] {
+  --bg: #3E1060;
+  --surface: #4E1878;
+  --border: #FEDD00;
+  --text: #FFFFFF;
+  --muted: #C0A0E0;
+  --accent: #FEDD00;
+  --gold: #FFE840;
+}
+
+/* Denver Nuggets ABA — Blue + Red + Gold */
+[data-theme="nuggets"] {
+  --bg: #003DA5;
+  --surface: #004AC0;
+  --border: #FFC72C;
+  --text: #FFF8E8;
+  --muted: #A0B8E0;
+  --accent: #FFC72C;
+  --gold: #FFD84E;
+}
+
+/* The Floridians (1971-72) — Black + Magenta + Orange */
+[data-theme="floridians"] {
+  --bg: #0A0A0A;
+  --surface: #181818;
+  --border: #D40F7D;
+  --text: #F5F0EC;
+  --muted: #C07080;
+  --accent: #E35205;
+  --gold: #D40F7D;
+}
+
+/* Houston Mavericks — Blue + Gold */
+[data-theme="mavericks"] {
+  --bg: #002468;
+  --surface: #003080;
+  --border: #FFC72C;
+  --text: #FFF8E8;
+  --muted: #8098C0;
+  --accent: #FFC72C;
+  --gold: #FFD84E;
+}
+
+/* Indiana Pacers — Royal Blue + Yellow */
+[data-theme="pacers"] {
+  --bg: #001E7C;
+  --surface: #002898;
+  --border: #FEDD00;
+  --text: #FFF8E8;
+  --muted: #9098D0;
+  --accent: #FEDD00;
+  --gold: #FFE840;
+}
+
+/* Kentucky Colonels (early era) — Forest Green + Black */
+[data-theme="colonels"] {
+  --bg: #00451E;
+  --surface: #005826;
+  --border: #C09020;
+  --text: #F0EDDC;
+  --muted: #80B888;
+  --accent: #C09020;
+  --gold: #DDB838;
+}
+
+/* Los Angeles Stars — Powder Blue + Red */
+[data-theme="lastars"] {
+  --bg: #D8EEF8;
+  --surface: #C8E4F0;
+  --border: #418FDE;
+  --text: #0A1830;
+  --muted: #2C5890;
+  --accent: #D50032;
+  --gold: #418FDE;
+}
+
+/* Memphis Tams — Kelly Green + Gold */
+[data-theme="tams"] {
+  --bg: #004A1E;
+  --surface: #005C26;
+  --border: #FFC72C;
+  --text: #F5EDD0;
+  --muted: #80B880;
+  --accent: #FFC72C;
+  --gold: #FFD84E;
+}
+
+/* Miami Floridians (1968-70) — Orange + Blue */
+[data-theme="miami"] {
+  --bg: #002060;
+  --surface: #002878;
+  --border: #E35205;
+  --text: #FFF0E8;
+  --muted: #8098C8;
+  --accent: #E35205;
+  --gold: #FFA030;
+}
+
+/* Minnesota Muskies — Blue + Gold */
+[data-theme="muskies"] {
+  --bg: #002880;
+  --surface: #003499;
+  --border: #896C4C;
+  --text: #FFF8EC;
+  --muted: #8098C8;
+  --accent: #B08C5C;
+  --gold: #C8A870;
+}
+
+/* New York Nets — Red + Blue + White */
+[data-theme="nets"] {
+  --bg: #F5F2EC;
+  --surface: #EDE8DC;
+  --border: #003DA5;
+  --text: #0A0A18;
+  --muted: #003DA5;
+  --accent: #D50032;
+  --gold: #003DA5;
+}
+
+/* New Orleans Buccaneers — Red + Navy */
+[data-theme="buccaneers"] {
+  --bg: #041E42;
+  --surface: #082A58;
+  --border: #C09010;
+  --text: #F5E8CC;
+  --muted: #8090B0;
+  --accent: #D50032;
+  --gold: #C09010;
+}
+
+/* Oakland Oaks — Kelly Green + Gold */
+[data-theme="oaks"] {
+  --bg: #1A4020;
+  --surface: #225028;
+  --border: #FFA400;
+  --text: #F0EDDC;
+  --muted: #88B890;
+  --accent: #FFA400;
+  --gold: #FFC030;
+}
+
+/* Pittsburgh Condors — Red + Gold */
+[data-theme="condors"] {
+  --bg: #5C0010;
+  --surface: #740018;
+  --border: #FFCD00;
+  --text: #FFF0E0;
+  --muted: #C08080;
+  --accent: #FFCD00;
+  --gold: #FFE040;
+}
+
+/* Pittsburgh Pipers — Blue + Gold */
+[data-theme="pipers"] {
+  --bg: #001E6C;
+  --surface: #002880;
+  --border: #FFD100;
+  --text: #FFF8E8;
+  --muted: #8098C0;
+  --accent: #FFD100;
+  --gold: #FFE440;
+}
+
+/* San Antonio Spurs ABA — Black + Silver */
+[data-theme="spurs"] {
+  --bg: #080808;
+  --surface: #161616;
+  --border: #8D9093;
+  --text: #E8E8E8;
+  --muted: #909090;
+  --accent: #C1C6C8;
+  --gold: #D8DCE0;
+}
+
+/* San Diego Conquistadors — Red + Yellow */
+[data-theme="conquistadors"] {
+  --bg: #8C0010;
+  --surface: #A80018;
+  --border: #FFC72C;
+  --text: #FFFDE8;
+  --muted: #D08080;
+  --accent: #FFC72C;
+  --gold: #FFE040;
+}
+
+/* San Diego Sails — Royal Blue + Kelly Green */
+[data-theme="sails"] {
+  --bg: #002580;
+  --surface: #003098;
+  --border: #00843D;
+  --text: #F5F8FC;
+  --muted: #80A8D8;
+  --accent: #00843D;
+  --gold: #40C870;
+}
+
+/* Spirits of St. Louis — Burnt Orange + Black + Silver */
+[data-theme="spirits"] {
+  --bg: #100C08;
+  --surface: #201810;
+  --border: #BE3A34;
+  --text: #F0ECE8;
+  --muted: #A09090;
+  --accent: #BE3A34;
+  --gold: #C1C6C8;
+}
+
+/* Utah Stars — Blue + Red */
+[data-theme="stars"] {
+  --bg: #002878;
+  --surface: #003490;
+  --border: #C09010;
+  --text: #F5F0EC;
+  --muted: #8098C8;
+  --accent: #D50032;
+  --gold: #C09010;
+}
+
+/* Virginia Squires (late era) — Seal Brown + Orange */
+[data-theme="squires"] {
+  --bg: #2A1E1A;
+  --surface: #382820;
+  --border: #FF8200;
+  --text: #F5EDE0;
+  --muted: #A89080;
+  --accent: #FF8200;
+  --gold: #FFA030;
+}
+
 html { scroll-behavior: smooth; }
 
 body {
@@ -109,6 +375,9 @@ nav.scrolled {
   color: var(--accent);
 }
 
+.theme-switcher { display: none; }
+nav.picker-visible .theme-switcher { display: block; }
+
 /* ── HERO / CARD ── */
 #hero {
   padding: 7rem 3rem 4rem;
@@ -120,27 +389,12 @@ nav.scrolled {
   margin: 0 auto;
 }
 
-/* Trading card */
+/* Card */
 .card {
-  border: 4px solid var(--accent);
-  border-radius: 10px;
-  box-shadow: 0 0 0 3px var(--gold), 0 12px 40px rgba(0,0,0,0.18);
-  background: var(--bg);
+  border-radius: 6px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.2);
+  background: var(--surface);
   overflow: hidden;
-}
-
-.card-header {
-  background: var(--accent);
-  color: var(--bg);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.6rem 1.5rem;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-weight: 700;
-  font-size: 1rem;
-  letter-spacing: 0.4em;
-  text-transform: uppercase;
 }
 
 .card-body {
@@ -166,11 +420,10 @@ nav.scrolled {
 .card-photo:hover img { transform: scale(1.04); }
 
 .card-info {
-  padding: 2rem 2rem 1.5rem;
-  border-left: 3px solid var(--border);
+  padding: 2.5rem 2rem;
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 1.5rem;
 }
 
 .card-name {
@@ -181,51 +434,59 @@ nav.scrolled {
   color: var(--text);
 }
 
-.card-bio {
-  font-size: 0.92rem;
-  line-height: 1.8;
+.card-location {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 0.82rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-top: 0.6rem;
+}
+
+.card-tagline {
+  font-size: 0.95rem;
+  line-height: 1.7;
   color: var(--text);
   opacity: 0.8;
+  margin-bottom: 0.6rem;
+}
+
+.card-residency {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
 }
 
 .card-cta {
   display: flex;
   gap: 0.75rem;
   flex-wrap: wrap;
+}
+
+.card-booking {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--muted);
   margin-top: auto;
 }
 
-.card-footer {
-  background: var(--accent);
-  color: var(--bg);
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 0.7rem 1.5rem;
-  font-family: 'Barlow Condensed', sans-serif;
-}
-
-.card-footer-label {
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  opacity: 0.7;
-  white-space: nowrap;
-}
-
-.card-footer .booking-email {
-  font-size: 1rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  color: var(--bg);
+.card-booking .booking-email {
+  color: var(--text);
   text-decoration: none;
-  border-bottom: 1px solid currentColor;
-  opacity: 0.9;
-  transition: opacity 0.2s;
+  border-bottom: 1px solid var(--border);
+  transition: border-color 0.2s, color 0.2s;
 }
 
-.card-footer .booking-email:hover { opacity: 1; }
+.card-booking .booking-email:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
 
 /* ── PHOTO GRID ── */
 .photo-grid {
@@ -744,8 +1005,7 @@ footer {
   .section-wrap { padding: 4rem 1.5rem; }
   .card-body { grid-template-columns: 1fr; }
   .card-photo { min-height: 260px; }
-  .card-info { border-left: none; border-top: 4px solid var(--accent); }
-  .card-footer { flex-direction: column; gap: 0.25rem; text-align: center; }
+  .card-info { border-top: 1px solid var(--border); }
   .soundcloud-layout { grid-template-columns: 1fr; gap: 3rem; }
   .about-layout { grid-template-columns: 1fr; gap: 3rem; }
   .bio-layout { grid-template-columns: 1fr; gap: 3rem; }
