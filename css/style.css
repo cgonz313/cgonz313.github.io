@@ -331,7 +331,7 @@ nav.scrolled {
   letter-spacing: 0.04em;
   color: var(--text);
   text-decoration: none;
-  display: none;
+  display: block;
 }
 
 .nav-links {
@@ -429,7 +429,7 @@ nav.picker-visible .theme-switcher { display: block; }
 .card-name {
   font-family: 'Anton', sans-serif;
   font-size: clamp(2.2rem, 4.5vw, 3.8rem);
-  line-height: 0.9;
+  line-height: 1.25;
   letter-spacing: 0.02em;
   color: var(--text);
 }
@@ -437,11 +437,10 @@ nav.picker-visible .theme-switcher { display: block; }
 .card-location {
   font-family: 'Barlow Condensed', sans-serif;
   font-weight: 700;
-  font-size: 0.82rem;
-  letter-spacing: 0.3em;
+  font-size: 1rem;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--accent);
-  margin-top: 0.6rem;
 }
 
 .card-tagline {
@@ -997,7 +996,6 @@ footer {
 /* ── RESPONSIVE ── */
 @media (max-width: 768px) {
   nav { padding: 1rem 1.5rem; }
-  .nav-logo { display: block; }
   .nav-links { gap: 1.5rem; }
   .nav-links .nav-text { display: none; }
   .nav-links .nav-icon { display: inline; font-size: 1.2rem; }

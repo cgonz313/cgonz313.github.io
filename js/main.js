@@ -30,7 +30,7 @@ const widgetColors = {
 
 function applyTheme(theme) {
   document.documentElement.setAttribute('data-theme', theme);
-  const c = widgetColors[theme] || widgetColors.newsprint;
+  const c = widgetColors[theme] || widgetColors.spirits;
   const widget = document.getElementById('ra-widget');
   if (widget) {
     widget.src = `https://ra.co/widget/eventlisting?dj=craiggonzalez&bgcolor=${c.bgcolor}&textcolor=${c.textcolor}&linkcolor=${c.linkcolor}&darkbuttons=${c.darkbuttons}`;
@@ -100,6 +100,9 @@ document.querySelector('.footer-logo').addEventListener('click', () => {
 
 document.querySelectorAll('.booking-email').forEach(el => {
   const email = el.dataset.u + '@' + el.dataset.d + '.' + el.dataset.t;
-  el.href = 'mailto:' + email;
   el.textContent = email;
+  el.addEventListener('click', e => {
+    e.preventDefault();
+    window.location.href = 'mailto:' + email;
+  });
 });
